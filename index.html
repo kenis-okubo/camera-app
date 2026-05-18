@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Camera App</title>
+</head>
+
+<body>
+
+<h1>カメラアプリ</h1>
+
+<video id="video" autoplay playsinline width="640"></video>
+<br>
+<button id="capture">撮影</button>
+
+<script>
+const video = document.getElementById('video');
+
+async function startCamera() {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: true
+  });
+
+  video.srcObject = stream;
+}
+
+startCamera();
+</script>
+
+</body>
+</html>
